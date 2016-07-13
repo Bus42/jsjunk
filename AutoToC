@@ -1,0 +1,16 @@
+/*  You must have a nav element with a heading for accessibility compliance h2 and a ul with id="ToC" this parses all h2 elements for the table. If you are building your pages correctly, these should be the main headings for your articles. This ignores the first h2 as that is the table itself.  */
+
+var ToCEls = document.getElementsByTagName("h2");
+var ToC = document.getElementById("ToC");
+
+for (i=1; i<ToCEls.length; i++) {
+
+var node = document.createElement("li");
+var tlink = document.createElement("a");
+
+ToCEls[i].id = "Article"+i;
+tlink.href = "#"+ToCEls[i].id;
+tlink.innerHTML = ToCEls[i].innerHTML;
+node.appendChild(tlink);
+ToC.appendChild(node);
+}
